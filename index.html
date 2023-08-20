@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Slider</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: zoom 12s linear infinite, fade 12s linear infinite;
+            opacity: 0;
+        }
+        .youtube-audio {
+            display: none;
+        }
+        @keyframes zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        @keyframes fade {
+            0% { opacity: 0; }
+            33% { opacity: 1; }
+            66% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container" id="background-container"></div>
+
+<iframe style="border-radius:12px; position:absolute;" src="https://open.spotify.com/embed/album/70hX7IYqmUGV97OXs2v848?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+    <script>
+        var images = ['https://github.com/DirectAI/DirectAI/blob/main/data/pexels-alexas-fotos-12800455.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-alina-autumn-11779514.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-alina-autumn-11779515.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-amar-preciado-8519611.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-apunto-group-agencia-de-publicidad-7752795.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-atbo-245207.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-barnabas-davoti-11702792.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-barÄ±Å\x9f-yiÄ\x9fit-13293093.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-fabian-kÃ¶hler-14234152.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-francesco-ungaro-7211201.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-heart-rules-444492.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-irina-iriser-7633209.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-karen-laÃ¥rk-boshoff-6441474.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-khoa-vÃµ-5321441.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-luis-kuthe-4695939.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-luo-chris-15208769.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-mateusz-taciak-8131025.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-merve-bayar-10863556.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-nishant-aneja-4203280.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-skyler-ewing-4597758.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-stephanie-ho-994174.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-tuong-chopper-8935989.jpg?raw=true',
+ 'https://github.com/DirectAI/DirectAI/blob/main/data/pexels-willy-ams-4056753.jpg?raw=true'
+        ];
+
+        var container = document.getElementById('background-container');
+
+        images.forEach(function(image, index) {
+            var delay = (20 / images.length) * index;
+            var div = document.createElement('div');
+            div.className = 'background-image';
+            div.style.backgroundImage = 'url(' + image + ')';
+            div.style.animationDelay = delay + 's';
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>
